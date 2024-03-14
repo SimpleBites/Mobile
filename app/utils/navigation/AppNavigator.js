@@ -10,7 +10,16 @@ const Tab = createBottomTabNavigator()
 
 const AppNavigator = () => {
 	return (
-		<Tab.Navigator>
+		<Tab.Navigator
+			screenOptions={{
+				tabBarActiveTintColor: "#007AFF",
+				tabBarInactiveTintColor: "#FFFFFF",
+				tabBarStyle: {
+					backgroundColor: "#304A76",
+					height: 60,
+				},
+			}}
+		>
 			<Tab.Screen name="Home" component={HomeMain} />
 			<Tab.Screen name="Account" component={AccountMain} />
 			<Tab.Screen name="Recipes" component={RecipesMain} />
