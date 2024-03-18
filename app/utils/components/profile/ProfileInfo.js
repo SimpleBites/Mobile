@@ -1,6 +1,7 @@
 import React from "react"
 import { View, Image, Text, StyleSheet } from "react-native"
-import { images } from "../constants/Images"
+import ProfileStats from "./ProfileStats"
+import { images } from "../../constants/Images"
 
 const ProfileInfo = ({
 	pictureWidth,
@@ -9,6 +10,8 @@ const ProfileInfo = ({
 	title,
 	nameFontSize,
 	titleFontSize,
+	statsEnabled,
+	statsMode,
 }) => {
 	return (
 		<View style={styles.container}>
@@ -26,6 +29,7 @@ const ProfileInfo = ({
 					</Text>
 				</View>
 			</View>
+			<ProfileStats mode={statsMode} statsEnabled={statsEnabled} />
 		</View>
 	)
 }

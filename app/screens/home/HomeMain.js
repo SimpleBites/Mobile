@@ -1,7 +1,8 @@
 import React from "react"
 import { View, StyleSheet } from "react-native"
 import { GradientCard } from "../../utils/components/GradientCard"
-import ProfileInfo from "../../utils/components/ProfileInfo"
+import ProfileInfo from "../../utils/components/profile/ProfileInfo"
+import ProgressBar from "../../utils/components/ProgressBar"
 
 const HomeMain = () => {
 	return (
@@ -20,6 +21,8 @@ const HomeMain = () => {
 						title="Novice Chef"
 						nameFontSize={18}
 						titleFontSize={14}
+						statsEnabled={true}
+						statsMode={"overview"}
 					/>
 				</GradientCard>
 			</View>
