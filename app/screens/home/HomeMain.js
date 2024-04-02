@@ -1,10 +1,13 @@
+// HomeMain.js
+
 import React from "react"
 import { View, StyleSheet } from "react-native"
 import { GradientCard } from "../../utils/components/GradientCard"
 import ProfileInfo from "../../utils/components/profile/ProfileInfo"
-import ProgressBar from "../../utils/components/ProgressBar"
 
 const HomeMain = () => {
+	const colorName = "darkblue"
+
 	return (
 		<View style={styles.container}>
 			<View style={styles.gradientContainer}>
@@ -12,17 +15,17 @@ const HomeMain = () => {
 					width={"90%"}
 					height={180}
 					borderRadius={5}
-					type="light blue"
+					color={colorName}
 				>
 					<ProfileInfo
 						pictureWidth={80}
 						pictureHeight={80}
-						name="TGCoolMan"
-						title="Novice Chef"
+						name="Isahpassman"
+						title="Adept Chef"
 						nameFontSize={18}
 						titleFontSize={14}
 						statsEnabled={true}
-						statsMode={"overview"}
+						statsMode={{ mode: "recipes", color: colorName }}
 					/>
 				</GradientCard>
 			</View>
@@ -39,10 +42,6 @@ const styles = StyleSheet.create({
 		width: "100%",
 		alignItems: "center",
 		justifyContent: "center",
-	},
-	gradient: {
-		justifyContent: "center",
-		alignItems: "center",
 	},
 })
 

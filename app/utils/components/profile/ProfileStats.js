@@ -2,7 +2,8 @@ import React from "react"
 import { View, Text, StyleSheet } from "react-native"
 import ProgressBar from "../ProgressBar"
 
-const ProfileStats = ({ mode, statsEnabled }) => {
+// Updated to accept a color prop
+const ProfileStats = ({ mode, color, statsEnabled }) => {
 	if (!statsEnabled) {
 		return null
 	}
@@ -25,9 +26,8 @@ const ProfileStats = ({ mode, statsEnabled }) => {
 			</View>
 		)
 	} else if (mode === "recipes") {
-		// Hard-coded values for demonstration
-		const recipesMade = 15
-		const goal = 20
+		const recipesMade = 150 // Your dynamic value for recipes made
+		const goal = 200 // Your dynamic value for the goal
 
 		return (
 			<View style={styles.statsContainerRecipe}>
@@ -35,15 +35,13 @@ const ProfileStats = ({ mode, statsEnabled }) => {
 					<Text style={styles.statLabel}>RECIPES MADE</Text>
 					<Text style={styles.statLabel}>GOAL</Text>
 				</View>
-				<ProgressBar type={"blue"} currentValue={recipesMade} maxValue={goal} />
+				<ProgressBar color={color} currentValue={recipesMade} maxValue={goal} />
 				<View style={styles.statsLabelContainer}>
-					<Text style={styles.statValue}>15</Text>
-					<Text style={styles.statValue}>20</Text>
+					<Text style={styles.statValue}>{recipesMade}</Text>
+					<Text style={styles.statValue}>{goal}</Text>
 				</View>
 			</View>
 		)
-	} else {
-		return null
 	}
 }
 
@@ -51,7 +49,7 @@ const styles = StyleSheet.create({
 	statsContainer: {
 		flexDirection: "row",
 		justifyContent: "space-between",
-		paddingHorizontal: 20,
+		paddingHorizontal: 15,
 	},
 	statsContainerRecipe: {
 		flexDirection: "column",
@@ -67,11 +65,11 @@ const styles = StyleSheet.create({
 	},
 	statLabel: {
 		color: "#fff",
-		fontSize: 12,
+		fontSize: 13,
 	},
 	statValue: {
 		color: "#fff",
-		fontSize: 16,
+		fontSize: 14,
 		fontWeight: "bold",
 	},
 })

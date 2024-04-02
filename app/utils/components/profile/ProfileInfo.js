@@ -11,15 +11,25 @@ const ProfileInfo = ({
 	nameFontSize,
 	titleFontSize,
 	statsEnabled,
-	statsMode,
+	statsMode, // This is now expected to be an object { mode: "", color: "" }
 }) => {
+	// Assuming statsMode is now an object { mode: "recipes", color: "blue" }
+	// You may want to add a fallback for statsMode to ensure backward compatibility
+	const mode = statsMode?.mode
+	const color = statsMode?.color
+
 	return (
 		<View style={styles.container}>
 			<View style={styles.innerContainer}>
-				<Image
-					source={images.placeholderImage}
-					style={[styles.image, { width: pictureWidth, height: pictureHeight }]}
-				/>
+				<View style={styles.imageBorder}>
+					<Image
+						source={images.placeholderImage}
+						style={[
+							styles.image,
+							{ width: pictureWidth, height: pictureHeight },
+						]}
+					/>
+				</View>
 				<View style={styles.textContainer}>
 					<Text style={[styles.accountName, { fontSize: nameFontSize }]}>
 						{name}
@@ -29,7 +39,7 @@ const ProfileInfo = ({
 					</Text>
 				</View>
 			</View>
-			<ProfileStats mode={statsMode} statsEnabled={statsEnabled} />
+			<ProfileStats mode={mode} color={color} statsEnabled={statsEnabled} />
 		</View>
 	)
 }
@@ -41,10 +51,17 @@ const styles = StyleSheet.create({
 	innerContainer: {
 		flexDirection: "row",
 		alignItems: "center",
-		padding: 20,
+		paddingLeft: 20,
+		paddingTop: 20,
+		paddingBottom: 15,
 	},
 	image: {
-		borderRadius: 40,
+		borderRadius: 50,
+	},
+	imageBorder: {
+		borderRadius: 50,
+		borderWidth: 3,
+		borderColor: "rgba(255, 255, 255, 0.5)",
 	},
 	textContainer: {
 		marginLeft: 10,
