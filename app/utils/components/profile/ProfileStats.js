@@ -26,7 +26,7 @@ const ProfileStats = ({ mode, color, statsEnabled }) => {
 			</View>
 		)
 	} else if (mode === "recipes") {
-		const recipesMade = 150 // Your dynamic value for recipes made
+		const recipesMade = 105 // Your dynamic value for recipes made
 		const goal = 200 // Your dynamic value for the goal
 
 		return (

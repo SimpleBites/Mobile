@@ -1,16 +1,16 @@
-// HomeMain.js
-
 import React from "react"
 import { View, StyleSheet } from "react-native"
 import { GradientCard } from "../../utils/components/GradientCard"
 import ProfileInfo from "../../utils/components/profile/ProfileInfo"
+import Title from "../../utils/components/Title" // Import the Title component
 
 const HomeMain = () => {
-	const colorName = "darkblue"
+	const colorName = "green"
 
 	return (
 		<View style={styles.container}>
 			<View style={styles.gradientContainer}>
+				<Title mainText="Overview" subText="DETAILS" width={"90%"} />
 				<GradientCard
 					width={"90%"}
 					height={180}
@@ -36,9 +36,9 @@ const HomeMain = () => {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
+		marginTop: 50,
 	},
 	gradientContainer: {
-		marginTop: 50,
 		width: "100%",
 		alignItems: "center",
 		justifyContent: "center",
