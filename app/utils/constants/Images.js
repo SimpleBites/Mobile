@@ -20,3 +20,7 @@ export const icons = [
 		activeIcon: require("../../assets/icons/settings_active.png"),
 	},
 ]
+
+export const images = {
+	placeholderImage: require("../../assets/images/placeholder_image.jpg"),
+}
