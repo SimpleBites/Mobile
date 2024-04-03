@@ -11,10 +11,8 @@ const ProfileInfo = ({
 	nameFontSize,
 	titleFontSize,
 	statsEnabled,
-	statsMode, // This is now expected to be an object { mode: "", color: "" }
+	statsMode,
 }) => {
-	// Assuming statsMode is now an object { mode: "recipes", color: "blue" }
-	// You may want to add a fallback for statsMode to ensure backward compatibility
 	const mode = statsMode?.mode
 	const color = statsMode?.color
 

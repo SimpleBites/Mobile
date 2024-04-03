@@ -1,5 +1,3 @@
-// colors.js
-
 export const colors = {
 	red: {
 		gradient: ["#BE0640", "#F80E58"],

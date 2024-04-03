@@ -1,12 +1,10 @@
-// ProgressBar.js
-
 import React from "react"
 import { View, StyleSheet } from "react-native"
 import { colors } from "../constants/Colors"
 
 const ProgressBar = ({ color, currentValue, maxValue }) => {
 	const progress = (currentValue / maxValue) * 100
-	const colorVariants = colors[color] || colors["pink"] // Default to pink if color is not found
+	const colorVariants = colors[color] || colors["blue"]
 
 	return (
 		<View

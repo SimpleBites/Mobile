@@ -2,7 +2,6 @@ import React from "react"
 import { View, Text, StyleSheet } from "react-native"
 import ProgressBar from "../ProgressBar"
 
-// Updated to accept a color prop
 const ProfileStats = ({ mode, color, statsEnabled }) => {
 	if (!statsEnabled) {
 		return null
@@ -26,8 +25,8 @@ const ProfileStats = ({ mode, color, statsEnabled }) => {
 			</View>
 		)
 	} else if (mode === "recipes") {
-		const recipesMade = 105 // Your dynamic value for recipes made
-		const goal = 200 // Your dynamic value for the goal
+		const recipesMade = 105
+		const goal = 200
 
 		return (
 			<View style={styles.statsContainerRecipe}>

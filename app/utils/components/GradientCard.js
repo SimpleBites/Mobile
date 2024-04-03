@@ -10,8 +10,7 @@ export const GradientCard = ({
 	color,
 	children,
 }) => {
-	// Check if the specified color exists in the colors object, otherwise default to pink
-	const colorVariants = colors[color] || colors["pink"]
+	const colorVariants = colors[color] || colors["blue"]
 
 	return (
 		<LinearGradient
@@ -34,7 +33,7 @@ const styles = StyleSheet.create({
 		},
 		shadowOpacity: 0.25,
 		shadowRadius: 3.84,
-		elevation: 5, // For Android
+		elevation: 5,
 	},
 })
 

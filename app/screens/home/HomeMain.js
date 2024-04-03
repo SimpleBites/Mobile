@@ -2,7 +2,7 @@ import React from "react"
 import { View, StyleSheet } from "react-native"
 import { GradientCard } from "../../utils/components/GradientCard"
 import ProfileInfo from "../../utils/components/profile/ProfileInfo"
-import Title from "../../utils/components/Title" // Import the Title component
+import Title from "../../utils/components/Title"
 
 const HomeMain = () => {
 	const colorName = "green"
