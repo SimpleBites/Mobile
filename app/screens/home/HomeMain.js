@@ -22,7 +22,7 @@ const HomeMain = () => {
 						<ProfileInfo
 							pictureWidth={80}
 							pictureHeight={80}
-							name="Isahpassman"
+							name="test"
 							title="Adept Chef"
 							nameFontSize={18}
 							titleFontSize={14}

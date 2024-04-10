@@ -9,14 +9,25 @@ export const GradientCard = ({
 	borderRadius,
 	color,
 	children,
+	direction = "left-to-right", // Default direction
 }) => {
 	const colorVariants = colors[color] || colors["blue"]
+
+	const gradientStartEnd = {
+		start: { x: 0, y: 0.5 },
+		end: { x: 0.8, y: 0.5 },
+	}
+
+	if (direction === "right-to-left") {
+		gradientStartEnd.start = { x: 0.8, y: 0.5 }
+		gradientStartEnd.end = { x: 0, y: 0.5 }
+	}
 
 	return (
 		<LinearGradient
 			colors={colorVariants.gradient}
-			start={{ x: 0, y: 0.5 }}
-			end={{ x: 0.8, y: 0.5 }}
+			start={gradientStartEnd.start}
+			end={gradientStartEnd.end}
 			style={[styles.gradientCard, { width, height, borderRadius }]}
 		>
 			{children}
@@ -29,7 +40,7 @@ const styles = StyleSheet.create({
 		shadowColor: "#000",
 		shadowOffset: {
 			width: 0,
-			height: 2,
+			height: 4,
 		},
 		shadowOpacity: 0.25,
 		shadowRadius: 3.84,
