@@ -11,6 +11,7 @@ export const GradientCard = ({
 	children,
 	direction = "left-to-right", // Default direction
 	borderRadiusSides = "all", // Default to applying border radius to all sides
+	zIndex = 0, // Default zIndex
 }) => {
 	const colorVariants = colors[color] || colors["blue"]
 
@@ -57,7 +58,11 @@ export const GradientCard = ({
 			colors={colorVariants.gradient}
 			start={gradientStartEnd.start}
 			end={gradientStartEnd.end}
-			style={[styles.gradientCard, borderRadiusStyle, { width, height }]}
+			style={[
+				styles.gradientCard,
+				borderRadiusStyle,
+				{ width, height, zIndex },
+			]}
 		>
 			{children}
 		</LinearGradient>

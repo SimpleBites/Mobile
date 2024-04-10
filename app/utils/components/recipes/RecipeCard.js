@@ -2,7 +2,7 @@ import React from "react"
 import { View, StyleSheet, Text, ScrollView, Image } from "react-native"
 import GradientCard from "../GradientCard"
 import { images } from "../../constants/Images"
-import { Ionicons, FontAwesome } from "@expo/vector-icons"
+import { Ionicons } from "@expo/vector-icons"
 
 const RecipeCard = () => {
 	return (
@@ -14,6 +14,7 @@ const RecipeCard = () => {
 				color={"lightblue"}
 				direction={"right-to-left"}
 				borderRadiusSides={"top"}
+				zIndex={1}
 			>
 				<View style={styles.topInfoContainer}>
 					<View style={styles.titleContainer}>
@@ -25,7 +26,7 @@ const RecipeCard = () => {
 			</GradientCard>
 			<GradientCard
 				width={"90%"}
-				height={80}
+				height={70}
 				borderRadius={5}
 				color={"blue"}
 				direction={"right-to-left"}
@@ -33,7 +34,11 @@ const RecipeCard = () => {
 			>
 				<View style={styles.bottomInfoContainer}>
 					<View style={styles.bottomInfoLeftContainer}>
-						<Text style={styles.recipeRating}>FIVE STAR</Text>
+						<Ionicons name="star-sharp" size={18} color="yellow" />
+						<Ionicons name="star-sharp" size={18} color="yellow" />
+						<Ionicons name="star-sharp" size={18} color="yellow" />
+						<Ionicons name="star-sharp" size={18} color="yellow" />
+						<Ionicons name="star-sharp" size={18} color="lightgray" />
 					</View>
 					<View style={styles.bottomInfoRightContainer}>
 						<View style={styles.gridRowLeft}>
@@ -43,7 +48,7 @@ const RecipeCard = () => {
 							</View>
 							<View style={styles.gridItemContainer}>
 								<Ionicons name="person-outline" size={22} color="white" />
-								<Text style={styles.gridItem}>isahpassman</Text>
+								<Text style={styles.gridItem}>IsahPassman</Text>
 							</View>
 						</View>
 						<View style={styles.gridRowRight}>
@@ -52,7 +57,7 @@ const RecipeCard = () => {
 								<Text style={styles.gridItem}>15-30 min</Text>
 							</View>
 							<View style={styles.gridItemContainer}>
-								<Ionicons name="restaurant-outline" size={22} color="white" />
+								<Ionicons name="checkbox-outline" size={22} color="white" />
 								<Text style={styles.gridItem}>12 steps</Text>
 							</View>
 						</View>
@@ -60,18 +65,28 @@ const RecipeCard = () => {
 				</View>
 			</GradientCard>
 			<View style={styles.imageContainer}>
-				<Image source={images.placeholderImage} style={styles.image}></Image>
+				<View style={styles.imageShadow}>
+					<Image source={images.placeholderImage} style={styles.image}></Image>
+				</View>
 			</View>
 		</View>
 	)
 }
 
 const styles = StyleSheet.create({
+	titleContainer: {
+		flex: 1,
+		width: "65%",
+		alignItems: "left",
+		justifyContent: "center",
+		borderRadius: 5,
+		padding: 10,
+	},
 	gridTopItemContainer: {
 		flexDirection: "row",
 		justifyContent: "center",
 		alignItems: "center",
-		marginBottom: 14,
+		marginBottom: 8,
 	},
 	gridItemContainer: {
 		flexDirection: "row",
@@ -85,12 +100,25 @@ const styles = StyleSheet.create({
 		borderRadius: 5,
 	},
 	imageContainer: {
-		borderRadius: 5,
 		width: "90%",
 		position: "absolute",
+		zIndex: 2,
+	},
+	imageShadow: {
+		width: "35%",
+		shadowColor: "#000",
+		shadowOffset: {
+			width: 0,
+			height: 2,
+		},
+		shadowOpacity: 0.25,
+		shadowRadius: 3.84,
+		elevation: 5,
+		borderTopLeftRadius: 5,
+		borderBottomRightRadius: 5,
 	},
 	image: {
-		width: "35%",
+		width: "100%",
 		height: 115,
 		borderTopLeftRadius: 5,
 		borderBottomRightRadius: 5,
@@ -100,14 +128,7 @@ const styles = StyleSheet.create({
 		flex: 1,
 		alignItems: "flex-end",
 	},
-	titleContainer: {
-		flex: 1,
-		width: "65%",
-		alignItems: "left",
-		justifyContent: "center",
-		borderRadius: 5,
-		padding: 10,
-	},
+
 	recipeTitle: {
 		fontSize: 13,
 		fontWeight: "bold",
@@ -122,8 +143,10 @@ const styles = StyleSheet.create({
 	bottomInfoLeftContainer: {
 		height: "75%",
 		width: "35%",
-		justifyContent: "flex-end",
-		alignItems: "center",
+		justifyContent: "center",
+		flexDirection: "row",
+		alignItems: "flex-end",
+		gap: 3,
 	},
 	bottomInfoRightContainer: {
 		width: "65%",
@@ -134,17 +157,19 @@ const styles = StyleSheet.create({
 		width: "60%",
 		flexDirection: "column",
 		alignItems: "flex-start",
-		padding: 10,
+		justifyContent: "center",
+		marginLeft: 5,
 	},
 	gridRowRight: {
 		width: "40%",
 		flexDirection: "column",
 		alignItems: "flex-start",
-		padding: 10,
+		justifyContent: "center",
 	},
 	gridItem: {
 		color: "white",
-		fontSize: 12,
+		fontWeight: "bold",
+		fontSize: 10,
 	},
 
 	recipeRating: {
