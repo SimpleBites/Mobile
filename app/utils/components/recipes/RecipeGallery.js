@@ -50,9 +50,10 @@ const styles = StyleSheet.create({
 		flexDirection: "row",
 		flexWrap: "wrap",
 		justifyContent: "space-between",
+		marginBottom: -10, // Negative margin to counteract the spacing added below
 	},
 	gridRecipeContainer: {
-		marginBottom: 10,
+		marginBottom: 10, // Adjust this value to change the spacing between rows
 	},
 })
 

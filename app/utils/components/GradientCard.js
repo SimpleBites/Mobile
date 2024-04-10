@@ -10,6 +10,7 @@ export const GradientCard = ({
 	color,
 	children,
 	direction = "left-to-right", // Default direction
+	borderRadiusSides = "all", // Default to applying border radius to all sides
 }) => {
 	const colorVariants = colors[color] || colors["blue"]
 
@@ -23,12 +24,40 @@ export const GradientCard = ({
 		gradientStartEnd.end = { x: 0, y: 0.5 }
 	}
 
+	const borderRadiusStyle = (() => {
+		const sides = borderRadiusSides.split(",").map((side) => side.trim())
+		const style = {}
+
+		if (sides.includes("all")) {
+			style.borderRadius = borderRadius
+		} else {
+			if (sides.includes("top")) {
+				style.borderTopLeftRadius = borderRadius
+				style.borderTopRightRadius = borderRadius
+			}
+			if (sides.includes("bottom")) {
+				style.borderBottomLeftRadius = borderRadius
+				style.borderBottomRightRadius = borderRadius
+			}
+			if (sides.includes("left")) {
+				style.borderTopLeftRadius = borderRadius
+				style.borderBottomLeftRadius = borderRadius
+			}
+			if (sides.includes("right")) {
+				style.borderTopRightRadius = borderRadius
+				style.borderBottomRightRadius = borderRadius
+			}
+		}
+
+		return style
+	})()
+
 	return (
 		<LinearGradient
 			colors={colorVariants.gradient}
 			start={gradientStartEnd.start}
 			end={gradientStartEnd.end}
-			style={[styles.gradientCard, { width, height, borderRadius }]}
+			style={[styles.gradientCard, borderRadiusStyle, { width, height }]}
 		>
 			{children}
 		</LinearGradient>
