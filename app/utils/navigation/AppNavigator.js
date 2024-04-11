@@ -32,6 +32,7 @@ const AppNavigator = () => {
 					backgroundColor: "#304A76",
 					height: 60,
 				},
+				tabBarHideOnKeyboard: true,
 			})}
 		>
 			<Tab.Screen name="Home" component={HomeMain} options={headerOptions} />

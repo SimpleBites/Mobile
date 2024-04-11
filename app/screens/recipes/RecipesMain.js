@@ -5,12 +5,14 @@ import Title from "../../utils/components/Title"
 import GradientCard from "../../utils/components/GradientCard"
 import ProfileInfo from "../../utils/components/profile/ProfileInfo"
 import RecipeGallery from "../../utils/components/recipes/RecipeGallery"
+import SearchBar from "../../utils/components/recipes/RecipeSearch"
 
 const RecipesMain = () => {
 	return (
 		<ScrollView contentContainerStyle={styles.scrollViewContent}>
 			<View style={styles.container}>
 				<View style={styles.componentContainer}>
+					<SearchBar placeholder="Search recipes..." />
 					<Title mainText="Overview" subText="DETAILS" width={"90%"} />
 					<GradientCard
 						width={"90%"}
