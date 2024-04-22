@@ -25,6 +25,7 @@ const SingleRecipe = ({ route }) => {
 		<ScrollView contentContainerStyle={styles.scrollViewContent}>
 			<View style={styles.container}>
 				<View style={styles.componentContainer}>
+					{/* Switch between the 3 screens on recipe */}
 					<View style={styles.buttonContainer}>
 						<Pressable
 							onPress={() => handlePress("button1")}

@@ -7,9 +7,8 @@ import RecipeGallery from "../../utils/components/recipes/RecipeGallery"
 import { useNavigation } from "@react-navigation/native" // Temp
 
 const HomeMain = () => {
+	// TEMPORARY
 	const colorName = "green"
-
-	// Temp
 	const navigation = useNavigation()
 
 	const handleNavigateToAccountMain = () => {
@@ -38,7 +37,7 @@ const HomeMain = () => {
 							title="Adept Chef"
 							titleFontSize={14}
 							statsEnabled={true}
-							statsMode={{ mode: "recipes", color: colorName }}
+							statsMode={{ mode: "overview", color: colorName }}
 							padding={true}
 						/>
 					</GradientCard>

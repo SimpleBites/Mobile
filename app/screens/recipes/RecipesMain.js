@@ -7,12 +7,21 @@ import ProfileInfo from "../../utils/components/profile/ProfileInfo"
 import RecipeGallery from "../../utils/components/recipes/RecipeGallery"
 import SearchBar from "../../utils/components/recipes/RecipeSearch"
 import { recipes } from "../../utils/constants/DummyData"
+import { useNavigation } from "@react-navigation/native"
 
 const RecipesMain = () => {
+	// TEMPORARY
+	const navigation = useNavigation()
+
+	const handleNavigateToAccountMain = () => {
+		navigation.navigate("Account")
+	}
+
 	return (
 		<ScrollView contentContainerStyle={styles.scrollViewContent}>
 			<View style={styles.container}>
 				<View style={styles.componentContainer}>
+					{/* Profile overview card AND ALSO SEARCH BAR (why???) */}
 					<SearchBar placeholder="Search recipes..." />
 					<Title mainText="Overview" subText="DETAILS" width={"90%"} />
 					<GradientCard
@@ -20,6 +29,7 @@ const RecipesMain = () => {
 						height={180}
 						borderRadius={5}
 						color={"blue"}
+						onPress={handleNavigateToAccountMain}
 					>
 						<ProfileInfo
 							pictureWidth={80}
@@ -34,6 +44,7 @@ const RecipesMain = () => {
 						/>
 					</GradientCard>
 				</View>
+				{/* Bunch of recipe components, hardcoded cause no api :D */}
 				<View style={styles.componentContainer}>
 					<Title mainText="Recipe of the day" subText="DETAILS" width={"90%"} />
 					<RecipeCard recipe={recipes[0]} />

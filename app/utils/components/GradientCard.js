@@ -20,7 +20,6 @@ import { StyleSheet, TouchableWithoutFeedback } from "react-native"
  *
  * @returns {React.ReactNode} A pressable gradient card component.
  */
-
 export const GradientCard = ({
 	width,
 	height,
