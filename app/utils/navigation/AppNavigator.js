@@ -1,4 +1,6 @@
+// appnavigator.js
 import React from "react"
+import { createStackNavigator } from "@react-navigation/stack"
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import getTabBarIcon from "./TabBarIcon"
 
@@ -6,7 +8,9 @@ import HomeMain from "../../screens/home/HomeMain"
 import AccountMain from "../../screens/account/AccountMain"
 import RecipesMain from "../../screens/recipes/RecipesMain"
 import SettingsMain from "../../screens/settings/SettingsMain"
+import SingleRecipe from "../../screens/recipes/SingleRecipe"
 
+const Stack = createStackNavigator()
 const Tab = createBottomTabNavigator()
 
 const headerOptions = {
@@ -21,7 +25,7 @@ const headerOptions = {
 	headerTintColor: "white",
 }
 
-const AppNavigator = () => {
+const MainTabs = () => {
 	return (
 		<Tab.Navigator
 			screenOptions={({ route }) => ({
@@ -52,6 +56,30 @@ const AppNavigator = () => {
 				options={headerOptions}
 			/>
 		</Tab.Navigator>
+	)
+}
+
+const AppNavigator = () => {
+	return (
+		<Stack.Navigator
+			screenOptions={{
+				headerStyle: headerOptions.headerStyle,
+				headerTintColor: headerOptions.headerTintColor,
+			}}
+		>
+			<Stack.Screen
+				name="MainTabs"
+				component={MainTabs}
+				options={{ headerShown: false }}
+			/>
+			<Stack.Screen
+				name="SingleRecipe"
+				component={SingleRecipe}
+				options={{
+					title: "Recipe Details",
+				}}
+			/>
+		</Stack.Navigator>
 	)
 }
 

@@ -2,8 +2,9 @@ import { images } from "./Images"
 
 export const recipes = [
 	{
-		title: "pancakes",
-		description: "delicious pancakes",
+		title: "Pancakes with syrup and apple slices",
+		description:
+			"delicious Pancakes with syrup and apple slicesdelicious Pancakes with syrup and apple slicesdelicious Pancakes with syrup and apple slicesdelicious Pancakes with syrup and apple slicesdelicious Pancakes with syrup and apple slicesdelicious Pancakes with syrup and apple slicesdelicious Pancakes with syrup and apple slicesdelicious Pancakes with syrup and apple slicesdelicious Pancakes with syrup and apple slicesdelicious Pancakes with syrup and apple slices",
 		image: images.placeholderImage,
 		average_score: "4.30",
 		difficulty: "easy",
@@ -50,8 +51,8 @@ export const recipes = [
 		category_id: 2,
 	},
 	{
-		title: "pancakes",
-		description: "delicious pancakes",
+		title: "Pancakes with syrup and apple slices",
+		description: "delicious Pancakes with syrup and apple slices",
 		image: images.placeholderImage,
 		average_score: "4.30",
 		difficulty: "easy",
@@ -98,8 +99,8 @@ export const recipes = [
 		category_id: 2,
 	},
 	{
-		title: "pancakes",
-		description: "delicious pancakes",
+		title: "Pancakes with syrup and apple slices",
+		description: "delicious Pancakes with syrup and apple slices",
 		image: images.placeholderImage,
 		average_score: "4.30",
 		difficulty: "easy",

@@ -1,79 +1,102 @@
 import React from "react"
-import { View, StyleSheet, Text, ScrollView, Image } from "react-native"
+import {
+	View,
+	StyleSheet,
+	Text,
+	ScrollView,
+	Image,
+	Touchable,
+	Pressable,
+} from "react-native"
 import GradientCard from "../GradientCard"
 import { images } from "../../constants/Images"
 import { Ionicons } from "@expo/vector-icons"
+import RecipeRating from "./RecipeRating"
+import { useNavigation } from "@react-navigation/native"
 
-const RecipeCard = () => {
+const RecipeCard = ({ recipe }) => {
+	const navigation = useNavigation()
+
+	const handlePress = (recipe) => {
+		navigation.navigate("SingleRecipe", { recipe })
+	}
+
 	return (
 		<View style={styles.container}>
-			<GradientCard
-				width={"90%"}
-				height={80}
-				borderRadius={5}
-				color={"lightblue"}
-				direction={"right-to-left"}
-				borderRadiusSides={"top"}
-				zIndex={1}
+			<Pressable
+				style={styles.recipeContainer}
+				onPress={() => handlePress(recipe)}
 			>
-				<View style={styles.topInfoContainer}>
-					<View style={styles.titleContainer}>
-						<Text style={styles.recipeTitle}>
-							Hello guys this is my recipe !!!! I hope you like it :):):):):)
-						</Text>
-					</View>
-				</View>
-			</GradientCard>
-			<GradientCard
-				width={"90%"}
-				height={70}
-				borderRadius={5}
-				color={"blue"}
-				direction={"right-to-left"}
-				borderRadiusSides={"bottom"}
-			>
-				<View style={styles.bottomInfoContainer}>
-					<View style={styles.bottomInfoLeftContainer}>
-						<Ionicons name="star-sharp" size={18} color="yellow" />
-						<Ionicons name="star-sharp" size={18} color="yellow" />
-						<Ionicons name="star-sharp" size={18} color="yellow" />
-						<Ionicons name="star-sharp" size={18} color="yellow" />
-						<Ionicons name="star-sharp" size={18} color="lightgray" />
-					</View>
-					<View style={styles.bottomInfoRightContainer}>
-						<View style={styles.gridRowLeft}>
-							<View style={styles.gridTopItemContainer}>
-								<Ionicons name="bookmark-outline" size={22} color="white" />
-								<Text style={styles.gridItem}>OneTag, TwoTag</Text>
-							</View>
-							<View style={styles.gridItemContainer}>
-								<Ionicons name="person-outline" size={22} color="white" />
-								<Text style={styles.gridItem}>IsahPassman</Text>
-							</View>
-						</View>
-						<View style={styles.gridRowRight}>
-							<View style={styles.gridTopItemContainer}>
-								<Ionicons name="time-outline" size={22} color="white" />
-								<Text style={styles.gridItem}>15-30 min</Text>
-							</View>
-							<View style={styles.gridItemContainer}>
-								<Ionicons name="checkbox-outline" size={22} color="white" />
-								<Text style={styles.gridItem}>12 steps</Text>
-							</View>
+				<GradientCard
+					width={"90%"}
+					height={80}
+					borderRadius={5}
+					color={"red"}
+					direction={"right-to-left"}
+					borderRadiusSides={"top"}
+					zIndex={1}
+				>
+					<View style={styles.topInfoContainer}>
+						<View style={styles.titleContainer}>
+							<Text style={styles.recipeTitle}>{recipe.title}</Text>
 						</View>
 					</View>
+				</GradientCard>
+				<GradientCard
+					width={"90%"}
+					height={70}
+					borderRadius={5}
+					color={"lightred"}
+					direction={"right-to-left"}
+					borderRadiusSides={"bottom"}
+				>
+					<View style={styles.bottomInfoContainer}>
+						<View style={styles.bottomInfoLeftContainer}>
+							<RecipeRating stars={recipe.average_score} />
+						</View>
+						<View style={styles.bottomInfoRightContainer}>
+							<View style={styles.gridRowLeft}>
+								<View style={styles.gridTopItemContainer}>
+									<Ionicons name="bookmark-outline" size={22} color="white" />
+									<Text style={styles.gridItem}>OneTag, TwoTag</Text>
+								</View>
+								<View style={styles.gridItemContainer}>
+									<Ionicons name="person-outline" size={22} color="white" />
+									<Text style={styles.gridItem}>IsahPassman</Text>
+								</View>
+							</View>
+							<View style={styles.gridRowRight}>
+								<View style={styles.gridTopItemContainer}>
+									<Ionicons name="time-outline" size={22} color="white" />
+									<Text style={styles.gridItem}>15-30 min</Text>
+								</View>
+								<View style={styles.gridItemContainer}>
+									<Ionicons name="checkbox-outline" size={22} color="white" />
+									<Text style={styles.gridItem}>12 steps</Text>
+								</View>
+							</View>
+						</View>
+					</View>
+				</GradientCard>
+				<View style={styles.imageContainer}>
+					<View style={styles.imageShadow}>
+						<Image
+							source={images.placeholderImage}
+							style={styles.image}
+						></Image>
+					</View>
 				</View>
-			</GradientCard>
-			<View style={styles.imageContainer}>
-				<View style={styles.imageShadow}>
-					<Image source={images.placeholderImage} style={styles.image}></Image>
-				</View>
-			</View>
+			</Pressable>
 		</View>
 	)
 }
 
 const styles = StyleSheet.create({
+	recipeContainer: {
+		width: "100%",
+		height: "100%",
+		alignItems: "center",
+	},
 	titleContainer: {
 		flex: 1,
 		width: "65%",

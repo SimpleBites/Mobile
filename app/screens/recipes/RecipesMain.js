@@ -6,6 +6,7 @@ import GradientCard from "../../utils/components/GradientCard"
 import ProfileInfo from "../../utils/components/profile/ProfileInfo"
 import RecipeGallery from "../../utils/components/recipes/RecipeGallery"
 import SearchBar from "../../utils/components/recipes/RecipeSearch"
+import { recipes } from "../../utils/constants/DummyData"
 
 const RecipesMain = () => {
 	return (
@@ -29,12 +30,13 @@ const RecipesMain = () => {
 							titleFontSize={14}
 							statsEnabled={true}
 							statsMode={{ mode: "recipes", color: "blue" }}
+							padding={true}
 						/>
 					</GradientCard>
 				</View>
 				<View style={styles.componentContainer}>
 					<Title mainText="Recipe of the day" subText="DETAILS" width={"90%"} />
-					<RecipeCard />
+					<RecipeCard recipe={recipes[0]} />
 				</View>
 				<View style={styles.componentContainer}>
 					<Title mainText="Recently Viewed" subText="MORE" width={"90%"} />
@@ -54,7 +56,7 @@ const RecipesMain = () => {
 						subText="DETAILS"
 						width={"90%"}
 					/>
-					<RecipeCard />
+					<RecipeCard recipe={recipes[1]} />
 				</View>
 			</View>
 		</ScrollView>

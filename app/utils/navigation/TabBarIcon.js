@@ -1,15 +1,28 @@
 import React from "react"
-import { Image } from "react-native"
-import { icons } from "../constants/Images"
 import { sizes } from "../constants/Sizes"
 
+import { Ionicons } from "@expo/vector-icons"
+
 const getTabBarIcon = (route, focused) => {
-	const { icon, activeIcon } = icons.find((item) => item.name === route.name)
-	const iconSource = focused ? activeIcon : icon
+	const routeName = route.name
+	let iconName
+
+	if (routeName === "Home") {
+		iconName = focused ? "home" : "home-outline"
+	} else if (routeName === "Recipes") {
+		iconName = focused ? "restaurant" : "restaurant-outline"
+	} else if (routeName === "Account") {
+		iconName = focused ? "person" : "person-outline"
+	} else if (routeName === "Settings") {
+		iconName = focused ? "settings" : "settings-outline"
+	}
+
+	// Return the appropriate icon component
 	return (
-		<Image
-			source={iconSource}
-			style={{ width: sizes.iconSmall, height: sizes.iconSmall }}
+		<Ionicons
+			name={iconName}
+			size={sizes.iconSmall}
+			color={focused ? "#EDEDED" : "#FFFFFF"}
 		/>
 	)
 }

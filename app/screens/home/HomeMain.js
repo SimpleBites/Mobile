@@ -4,33 +4,46 @@ import { GradientCard } from "../../utils/components/GradientCard"
 import ProfileInfo from "../../utils/components/profile/ProfileInfo"
 import Title from "../../utils/components/Title"
 import RecipeGallery from "../../utils/components/recipes/RecipeGallery"
+import { useNavigation } from "@react-navigation/native" // Temp
 
 const HomeMain = () => {
 	const colorName = "green"
 
+	// Temp
+	const navigation = useNavigation()
+
+	const handleNavigateToAccountMain = () => {
+		navigation.navigate("Account")
+	}
+
 	return (
 		<ScrollView contentContainerStyle={styles.scrollViewContent}>
+			{/* Kinda forgot why I wrapped all of this in two containers :P */}
 			<View style={styles.container}>
 				<View style={styles.componentContainer}>
+					{/* Profile overview card */}
 					<Title mainText="Overview" subText="DETAILS" width={"90%"} />
 					<GradientCard
 						width={"90%"}
 						height={180}
-						borderRadius={5}
 						color={colorName}
+						borderRadius={5}
+						onPress={handleNavigateToAccountMain}
 					>
 						<ProfileInfo
 							pictureWidth={80}
 							pictureHeight={80}
 							name="test"
-							title="Adept Chef"
 							nameFontSize={18}
+							title="Adept Chef"
 							titleFontSize={14}
 							statsEnabled={true}
 							statsMode={{ mode: "recipes", color: colorName }}
+							padding={true}
 						/>
 					</GradientCard>
 				</View>
+				{/* Recipe displays */}
 				<View style={styles.componentContainer}>
 					<Title mainText="Recently Viewed" subText="MORE" width={"90%"} />
 					<RecipeGallery width={"90%"} mode={"scroll"} />

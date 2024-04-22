@@ -22,5 +22,5 @@ export const icons = [
 ]
 
 export const images = {
-	placeholderImage: require("../../assets/images/placeholder_image.jpg"),
+	placeholderImage: require("../../assets/images/placeholder_image_5.jpg"),
 }
