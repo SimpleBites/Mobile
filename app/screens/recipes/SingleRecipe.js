@@ -18,7 +18,6 @@ const SingleRecipe = ({ route }) => {
 
 	const handlePress = (button) => {
 		setActiveButton(button)
-		console.log(button)
 	}
 
 	return (
