@@ -43,4 +43,8 @@ export const colors = {
 		gradient: ["#202020", "#737373"],
 		progressbar: ["#A0A0A0", "#EFEFEF"],
 	},
+	white: {
+		gradient: ["#FFFFFF", "#FFFFFF"],
+		progressbar: ["#FFFFFF", "#FFFFFFF"],
+	},
 }
