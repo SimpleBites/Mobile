@@ -17,7 +17,6 @@ const getTabBarIcon = (route, focused) => {
 		iconName = focused ? "settings" : "settings-outline"
 	}
 
-	// Return the appropriate icon component
 	return (
 		<Ionicons
 			name={iconName}

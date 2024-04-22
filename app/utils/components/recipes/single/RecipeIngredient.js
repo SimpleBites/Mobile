@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { View, Text, StyleSheet, Pressable } from "react-native"
-import { Ionicons } from "@expo/vector-icons" // Import Ionicons from expo/vector-icons
+import { Ionicons } from "@expo/vector-icons"
 
 const RecipeIngredient = ({ width, ingredientName }) => {
 	const [checked, setChecked] = useState(false)

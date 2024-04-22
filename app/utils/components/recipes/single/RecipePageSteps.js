@@ -161,7 +161,7 @@ const styles = StyleSheet.create({
 	},
 	stepNumber: {},
 	totalSteps: {
-		color: "#00000070", // A different color to make /9 look different
+		color: "#00000070",
 		fontWeight: "bold",
 	},
 })
